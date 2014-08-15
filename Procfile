@@ -1,0 +1,1 @@
+web: gunicorn checkpop.wsgi --log-file -
