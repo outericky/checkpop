@@ -20,9 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ysb1)=9i*vsk#9sjvj9skw_0^x2n-)6*6(#db=)u%af_-!8ckt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-TEMPLATE_DEBUG = True
+import socket
+
+if socket.gethostname() == 'Patriks-MacBook-Pro.local' or socket.gethostname() == 'nathans-air.attlocal.net':
+    DEBUG = True
+else:
+    DEBUG = False
+
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
