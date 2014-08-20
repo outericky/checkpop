@@ -19,11 +19,55 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Check Pop? Check.</h1>
+    <div class="container">
+        <table class="table" id="checkpop">
+            <tbody>
+                <tr>
+                    <td><span class="glyphicon glyphicon-list" style="color:gray;"></td>
+                    <td><input type="input" class="form-control" placeholder="step one"></td>
+                    <td><span class="glyphicon glyphicon-user" style="color:gray;"></span></td>
+                    <td><span class="glyphicon glyphicon-remove DeleteItem" style="color: red;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success" id="addCheckPop">Add Another Item</button>
+    </div>
+
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    <script>
+    $(document).ready(function () {
+        $('#addCheckPop').click(function () {
+            $("#checkpop tbody").append(
+                '<tr>' +
+                    '<td><span class="glyphicon glyphicon-list" style="color:gray;"></td>' +
+                    '<td><input type="input" class="form-control" placeholder="next step"></td>' +
+                    '<td><span class="glyphicon glyphicon-user" style="color:gray;"></span></td>' +
+                    '<td><span class="glyphicon glyphicon-remove DeleteItem" style="color: red;"></span></td>' +
+                '</tr>'
+            );
+            $(".DeleteItem").bind("click", Delete).css('cursor', 'pointer');
+
+        });
+
+        function Delete() {
+            var row = $(this).parent().parent();
+            row.remove();
+        };
+
+        $(".DeleteItem").bind("click", Delete);
+        $(".DeleteItem").css('cursor', 'pointer');
+
+
+    });
+    </script>
+
   </body>
 </html>
